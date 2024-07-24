@@ -16,6 +16,9 @@ struct HomeView: View {
     @State private var debugMessage = ""
     @State private var newPreset: Preset?
     @State private var isShowingNewPreset = false
+    @State private var otherPresets: [Preset] = []
+    @State private var selectedPreset: Preset?
+    @State private var selectedTab: Int = 0
 
     var body: some View {
         NavigationView {
@@ -39,8 +42,20 @@ struct HomeView: View {
                             EmptyView()
                         }
                     }
+                    NavigationLink(
+                        destination: selectedPreset.map { PresetDetailView(preset: $0, selectedTab: selectedTab) },
+                        isActive: Binding(
+                            get: { selectedPreset != nil },
+                            set: { if !$0 { selectedPreset = nil } }
+                        )
+                    ) {
+                        EmptyView()
+                    }
                 }
             )
+            .onAppear {
+                loadOtherPresets()
+            }
         }
     }
     
@@ -97,22 +112,26 @@ struct HomeView: View {
     }
     
     private func presetRow(for preset: Preset) -> some View {
-        NewCompornent(preset: preset)
+        NewCompornent(preset: preset,
+                      onTextSettingsTap: {
+                          self.selectedPreset = preset
+                          self.selectedTab = 0
+                      },
+                      onVisualSimulationTap: {
+                          self.selectedPreset = preset
+                          self.selectedTab = 1
+                      })
     }
         
     private var otherPresetsSection: some View {
         Section(header: otherPresetsSectionHeader) {
-            let otherPresets = users.filter { !$0.isFromCountryside }.flatMap { $0.presets?.allObjects as? [Preset] ?? [] }
             if otherPresets.isEmpty {
                 Text("その他のプリセットはありません")
             } else {
-                ForEach(otherPresets.sorted(by: { $0.name ?? "" < $1.name ?? "" }), id: \.self) { preset in
-                    NewCompornent(preset: preset)
-                        .padding(.horizontal, 10)
+                ForEach(otherPresets, id: \.self) { preset in
+                    presetRow(for: preset)
                 }
-                .onDelete { indexSet in
-                    deleteOtherPresets(at: indexSet, presets: otherPresets)
-                }
+                .onDelete(perform: deleteOtherPresets)
             }
         }
     }
@@ -207,107 +226,115 @@ struct HomeView: View {
     }
 
     private func loadFromFile(result: Result<[URL], Error>) {
-            do {
-                guard let selectedFile = try result.get().first else {
-                    debugMessage = "ファイルが選択されていません"
-                    showingDebugAlert = true
-                    return
-                }
-                
-                let data = try Data(contentsOf: selectedFile)
-                let decoder = JSONDecoder()
-                let presetData = try decoder.decode(PresetData.self, from: data)
-                
-                createPresetFromData(presetData)
-                try viewContext.save()
-                debugMessage = "プリセットを正常に読み込みました"
+        do {
+            guard let selectedFile = try result.get().first else {
+                debugMessage = "ファイルが選択されていません"
                 showingDebugAlert = true
-            } catch {
-                debugMessage = "ファイルの読み込みに失敗しました: \(error.localizedDescription)"
-                showingDebugAlert = true
+                return
             }
+            
+            let data = try Data(contentsOf: selectedFile)
+            let decoder = JSONDecoder()
+            let presetData = try decoder.decode(PresetData.self, from: data)
+            
+            createPresetFromData(presetData)
+            try viewContext.save()
+            debugMessage = "プリセットを正常に読み込みました"
+            showingDebugAlert = true
+            loadOtherPresets()
+        } catch {
+            debugMessage = "ファイルの読み込みに失敗しました: \(error.localizedDescription)"
+            showingDebugAlert = true
         }
+    }
 
-        private func createPresetFromData(_ presetData: PresetData) {
-            let preset = Preset(context: viewContext)
-            preset.id = UUID()
-            preset.name = presetData.name
-            
-            let textSetting = TextSetting(context: viewContext)
-            textSetting.id = UUID()
-            textSetting.textFieldData = presetData.textSetting.textFieldData
-            textSetting.textSize = presetData.textSetting.textSize
-            textSetting.textWeight = presetData.textSetting.textWeight
-            
-            if let colorCode = presetData.textSetting.colorCode {
-                let fetchRequest: NSFetchRequest<ColorEntity> = ColorEntity.fetchRequest()
-                fetchRequest.predicate = NSPredicate(format: "colorCode == %@", colorCode)
-                
-                do {
-                    let results = try viewContext.fetch(fetchRequest)
-                    if let existingColor = results.first {
-                        textSetting.backgroundColor = existingColor
-                        textSetting.textColor = existingColor
-                    } else {
-                        let newColor = ColorEntity(context: viewContext)
-                        newColor.id = UUID()
-                        newColor.colorCode = colorCode
-                        newColor.backgroundColorCode = presetData.textSetting.backgroundColorCode ?? "#FFFFFF"
-                        newColor.textColorCode = presetData.textSetting.textColorCode ?? "#000000"
-                        textSetting.backgroundColor = newColor
-                        textSetting.textColor = newColor
-                    }
-                } catch {
-                    print("Failed to fetch or create ColorEntity: \(error)")
-                }
-            }
-            
-            preset.textSetting = textSetting
-
-            let visualSimulation = VisualSimulation(context: viewContext)
-            visualSimulation.id = UUID()
-            visualSimulation.blurriness = presetData.visualSimulation.blurriness
-
-            if let imageData = presetData.visualSimulation.imageData {
-                let image = ImageData(context: viewContext)
-                image.id = UUID()
-                image.imageData = imageData
-                visualSimulation.selectedImage = image
-            }
-
-            preset.visualSimulation = visualSimulation
-
-            let user = fetchOrCreateUser(with: presetData.user)
-            user.addToPresets(preset)
-        }
-
-        private func fetchOrCreateUser(with userData: UserData) -> User {
-            let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "name == %@", userData.name)
+    private func createPresetFromData(_ presetData: PresetData) {
+        let preset = Preset(context: viewContext)
+        preset.id = UUID()
+        preset.name = presetData.name
+        
+        let textSetting = TextSetting(context: viewContext)
+        textSetting.id = UUID()
+        textSetting.textFieldData = presetData.textSetting.textFieldData
+        textSetting.textSize = presetData.textSetting.textSize
+        textSetting.textWeight = presetData.textSetting.textWeight
+        
+        if let colorCode = presetData.textSetting.colorCode {
+            let fetchRequest: NSFetchRequest<ColorEntity> = ColorEntity.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "colorCode == %@", colorCode)
             
             do {
                 let results = try viewContext.fetch(fetchRequest)
-                if let existingUser = results.first {
-                    return existingUser
+                if let existingColor = results.first {
+                    textSetting.backgroundColor = existingColor
+                    textSetting.textColor = existingColor
                 } else {
-                    let newUser = User(context: viewContext)
-                    newUser.id = UUID()
-                    newUser.name = userData.name
-                    newUser.isFromCountryside = userData.isFromCountryside
-                    return newUser
+                    let newColor = ColorEntity(context: viewContext)
+                    newColor.id = UUID()
+                    newColor.colorCode = colorCode
+                    newColor.backgroundColorCode = presetData.textSetting.backgroundColorCode ?? "#FFFFFF"
+                    newColor.textColorCode = presetData.textSetting.textColorCode ?? "#000000"
+                    textSetting.backgroundColor = newColor
+                    textSetting.textColor = newColor
                 }
             } catch {
-                debugMessage = "ユーザーの取得または作成に失敗しました: \(error.localizedDescription)"
-                showingDebugAlert = true
-                return User(context: viewContext)
+                print("Failed to fetch or create ColorEntity: \(error)")
             }
         }
+        
+        preset.textSetting = textSetting
 
-    private func deleteOtherPresets(at offsets: IndexSet, presets: [Preset]) {
+        let visualSimulation = VisualSimulation(context: viewContext)
+        visualSimulation.id = UUID()
+        visualSimulation.blurriness = presetData.visualSimulation.blurriness
+
+        if let imageData = presetData.visualSimulation.imageData {
+            let image = ImageData(context: viewContext)
+            image.id = UUID()
+            image.imageData = imageData
+            visualSimulation.selectedImage = image
+        }
+
+        preset.visualSimulation = visualSimulation
+
+        let user = fetchOrCreateUser(with: presetData.user)
+        user.addToPresets(preset)
+    }
+
+    private func fetchOrCreateUser(with userData: UserData) -> User {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "name == %@", userData.name)
+        
+        do {
+            let results = try viewContext.fetch(fetchRequest)
+            if let existingUser = results.first {
+                return existingUser
+            } else {
+                let newUser = User(context: viewContext)
+                newUser.id = UUID()
+                newUser.name = userData.name
+                newUser.isFromCountryside = userData.isFromCountryside
+                return newUser
+            }
+        } catch {
+            debugMessage = "ユーザーの取得または作成に失敗しました: \(error.localizedDescription)"
+            showingDebugAlert = true
+            return User(context: viewContext)
+        }
+    }
+
+    private func loadOtherPresets() {
+        otherPresets = users.filter { !$0.isFromCountryside }
+            .flatMap { $0.presets?.allObjects as? [Preset] ?? [] }
+            .sorted { ($0.name ?? "") < ($1.name ?? "") }
+    }
+
+    private func deleteOtherPresets(at offsets: IndexSet) {
         for index in offsets {
-            let preset = presets[index]
+            let preset = otherPresets[index]
             viewContext.delete(preset)
         }
+        otherPresets.remove(atOffsets: offsets)
         saveContext()
     }
 

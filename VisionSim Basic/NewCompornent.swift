@@ -8,11 +8,11 @@ struct NewCompornent: View {
     @State private var debugMessage = ""
     @State private var showingDeleteConfirmation = false
     @State private var showingShareSheet = false
-    @State private var isShowingTextSettings = false
-    @State private var isShowingVisualSimulation = false
+    var onTextSettingsTap: () -> Void
+    var onVisualSimulationTap: () -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 15) { // 調整: spacingを減らす
+        VStack(alignment: .leading, spacing: 15) {
             HStack(alignment: .center, spacing: 15) {
                 if let iconData = preset.user?.icon?.imageData, let uiImage = UIImage(data: iconData) {
                     Image(uiImage: uiImage)
@@ -30,38 +30,37 @@ struct NewCompornent: View {
                     .font(.title)
                 Spacer()
             }
-            .padding(.horizontal, 10) // 調整: paddingを減らす
+            .padding(.horizontal, 10)
 
             HStack(spacing: 0) {
-                NavigationLink(destination: PresetDetailView(preset: preset, selectedTab: 0)) {
-                    TextEditorComponent(
-                        text: Binding(
-                            get: { preset.textSetting?.textFieldData ?? "" },
-                            set: { preset.textSetting?.textFieldData = $0 }
-                        ),
-                        fontSize: CGFloat(preset.textSetting?.textSize ?? 18),
-                        fontWeightValue: preset.textSetting?.textWeight ?? 0.5,
-                        textColor: UIColor(Color(hex: preset.textSetting?.textColor?.textColorCode ?? "#000000")),
-                        backgroundColor: UIColor(Color(hex: preset.textSetting?.backgroundColor?.backgroundColorCode ?? "#FFFFFF")),
-                        isEditable: false
-                    )
-                    .aspectRatio(1, contentMode: .fit)
-                    .background(Color.white)
-                    .cornerRadius(10, corners: [.topLeft, .bottomLeft])
-                    .padding(.trailing, 0) // 調整: paddingを減らす
-                    .contentShape(Rectangle())
+                TextEditorComponent(
+                    text: .constant(preset.textSetting?.textFieldData ?? ""),
+                    fontSize: CGFloat(preset.textSetting?.textSize ?? 18),
+                    fontWeightValue: preset.textSetting?.textWeight ?? 0.5,
+                    textColor: UIColor(Color(hex: preset.textSetting?.textColor?.textColorCode ?? "#000000")),
+                    backgroundColor: UIColor(Color(hex: preset.textSetting?.backgroundColor?.backgroundColorCode ?? "#FFFFFF")),
+                    isEditable: false
+                )
+                .aspectRatio(1, contentMode: .fit)
+                .background(Color.white)
+                .cornerRadius(10, corners: [.topLeft, .bottomLeft])
+                .padding(.trailing, 0)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    onTextSettingsTap()
                 }
 
-                NavigationLink(destination: PresetDetailView(preset: preset, selectedTab: 1)) {
-                    VisualSimulationComponent(
-                        image: preset.visualSimulation?.selectedImage?.imageData.flatMap(UIImage.init) ?? UIImage(systemName: "photo")!,
-                        blurAmount: CGFloat(preset.visualSimulation?.blurriness ?? 0)
-                    )
-                    .aspectRatio(1, contentMode: .fit)
-                    .background(Color.white)
-                    .cornerRadius(10, corners: [.topRight, .bottomRight])
-                    .padding(.leading, 0) // 調整: paddingを減らす
-                    .contentShape(Rectangle())
+                VisualSimulationComponent(
+                    image: preset.visualSimulation?.selectedImage?.imageData.flatMap(UIImage.init) ?? UIImage(systemName: "photo")!,
+                    blurAmount: CGFloat(preset.visualSimulation?.blurriness ?? 0)
+                )
+                .aspectRatio(1, contentMode: .fit)
+                .background(Color.white)
+                .cornerRadius(10, corners: [.topRight, .bottomRight])
+                .padding(.leading, 0)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    onVisualSimulationTap()
                 }
             }
 
@@ -86,7 +85,7 @@ struct NewCompornent: View {
         }
         .background(Color(.systemGray6))
         .cornerRadius(15)
-        .padding() // 必要に応じて調整
+        .padding()
         .alert(isPresented: $showingDebugAlert) {
             Alert(title: Text("Debug Info"), message: Text(debugMessage), dismissButton: .default(Text("OK")))
         }
@@ -214,7 +213,7 @@ struct NewCompornent_Previews: PreviewProvider {
         preset.visualSimulation = visualSimulation
 
         return NavigationView {
-            NewCompornent(preset: preset)
+            NewCompornent(preset: preset, onTextSettingsTap: {}, onVisualSimulationTap: {})
                 .environment(\.managedObjectContext, context)
                 .previewLayout(.sizeThatFits)
                 .padding()
