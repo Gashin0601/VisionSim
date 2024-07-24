@@ -14,22 +14,24 @@ struct VisualSimulationView: View {
         VStack {
             if !isEditMode {
                 // 表示モード
-                VStack(alignment: .leading) {
+                VStack(alignment: .center) {
                     Text("☑︎ シミュレーション済みの画像")
                         .font(.headline)
                     Image(uiImage: blurredImage ?? selectedImage ?? UIImage())
                         .resizable()
                         .scaledToFit()
                         .frame(height: 200)
+                        .frame(maxWidth: .infinity)
                 }
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .center) {
                     Text("☐ 通常の画像")
                         .font(.headline)
                     Image(uiImage: selectedImage ?? UIImage())
                         .resizable()
                         .scaledToFit()
                         .frame(height: 200)
+                        .frame(maxWidth: .infinity)
                 }
                 
                 Spacer()
@@ -37,23 +39,27 @@ struct VisualSimulationView: View {
                 Button("プリセットを編集") {
                     isEditMode = true
                 }
+                .frame(maxWidth: .infinity)
             } else {
                 // 編集モード
-                VStack(alignment: .leading) {
+                VStack(alignment: .center) {
                     Text("☑︎ シミュレーション済みの画像")
                         .font(.headline)
                     Image(uiImage: blurredImage ?? selectedImage ?? UIImage())
                         .resizable()
                         .scaledToFit()
                         .frame(height: 200)
+                        .frame(maxWidth: .infinity)
                 }
                 
                 Button("写真を選択") {
                     isImagePickerPresented = true
                 }
                 .padding()
+                .frame(maxWidth: .infinity)
                 
                 Text("ぼやけ")
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 Slider(value: Binding(
                     get: { self.visualSimulation.blurriness },
                     set: { newValue in
@@ -63,6 +69,7 @@ struct VisualSimulationView: View {
                     }
                 ), in: 0...100, step: 0.5)
                 Text("ぼやけの度合い: \(visualSimulation.blurriness, specifier: "%.1f")")
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Spacer()
                 
@@ -70,6 +77,7 @@ struct VisualSimulationView: View {
                     isEditMode = false
                     saveChanges()
                 }
+                .frame(maxWidth: .infinity)
             }
         }
         .padding()

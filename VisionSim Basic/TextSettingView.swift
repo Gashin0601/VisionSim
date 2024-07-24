@@ -5,6 +5,7 @@ struct TextSettingsView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var textSetting: TextSetting
     @State private var isControlPanelVisible = true
+    @FocusState private var isTextFieldFocused: Bool
 
     var body: some View {
         GeometryReader { geometry in
@@ -26,6 +27,7 @@ struct TextSettingsView: View {
                         isEditable: true
                     )
                     .frame(height: isControlPanelVisible ? geometry.size.height * 0.6 : geometry.size.height)
+                    .focused($isTextFieldFocused)
 
                     Spacer()
                 }
@@ -48,6 +50,14 @@ struct TextSettingsView: View {
                 }
             }
             .animation(.spring(), value: isControlPanelVisible)
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("完了") {
+                        isTextFieldFocused = false
+                    }
+                }
+            }
         }
         .edgesIgnoringSafeArea(.bottom)
     }

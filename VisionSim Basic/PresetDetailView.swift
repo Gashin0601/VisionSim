@@ -82,6 +82,7 @@ struct PresetDetailView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .edgesIgnoringSafeArea(.bottom)  // タブバーがSafeAreaの外まで表示されるようにする
     }
     
     private func saveContext() {

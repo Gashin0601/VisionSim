@@ -152,7 +152,45 @@ struct HomeView: View {
                 allowedContentTypes: [.json],
                 allowsMultipleSelection: false
             ) { result in
-                loadFromFile(result: result)
+                switch result {
+                case .success(let files):
+                    guard let file = files.first else {
+                        debugMessage = "ファイルが選択されていません"
+                        showingDebugAlert = true
+                        return
+                    }
+                    
+                    let gotAccess = file.startAccessingSecurityScopedResource()
+                    defer {
+                        if gotAccess {
+                            file.stopAccessingSecurityScopedResource()
+                        }
+                    }
+                    
+                    if !gotAccess {
+                        debugMessage = "ファイルへのアクセス権限を取得できませんでした"
+                        showingDebugAlert = true
+                        return
+                    }
+                    
+                    do {
+                        let data = try Data(contentsOf: file)
+                        let decoder = JSONDecoder()
+                        let presetData = try decoder.decode(PresetData.self, from: data)
+                        
+                        createPresetFromData(presetData)
+                        try viewContext.save()
+                        debugMessage = "プリセットを正常に読み込みました"
+                        showingDebugAlert = true
+                        loadOtherPresets()
+                    } catch {
+                        debugMessage = "ファイルの読み込みに失敗しました: \(error.localizedDescription)"
+                        showingDebugAlert = true
+                    }
+                case .failure(let error):
+                    debugMessage = "ファイルの選択に失敗しました: \(error.localizedDescription)"
+                    showingDebugAlert = true
+                }
             }
         }
     }
@@ -223,29 +261,6 @@ struct HomeView: View {
         } while existingNames.contains(newName)
         
         return newName
-    }
-
-    private func loadFromFile(result: Result<[URL], Error>) {
-        do {
-            guard let selectedFile = try result.get().first else {
-                debugMessage = "ファイルが選択されていません"
-                showingDebugAlert = true
-                return
-            }
-            
-            let data = try Data(contentsOf: selectedFile)
-            let decoder = JSONDecoder()
-            let presetData = try decoder.decode(PresetData.self, from: data)
-            
-            createPresetFromData(presetData)
-            try viewContext.save()
-            debugMessage = "プリセットを正常に読み込みました"
-            showingDebugAlert = true
-            loadOtherPresets()
-        } catch {
-            debugMessage = "ファイルの読み込みに失敗しました: \(error.localizedDescription)"
-            showingDebugAlert = true
-        }
     }
 
     private func createPresetFromData(_ presetData: PresetData) {
