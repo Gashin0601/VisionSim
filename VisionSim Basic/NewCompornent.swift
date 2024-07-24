@@ -131,7 +131,7 @@ struct NewCompornent: View {
                 textWeight: preset.textSetting?.textWeight ?? 1.0,
                 colorCode: preset.textSetting?.backgroundColor?.colorCode,
                 backgroundColorCode: preset.textSetting?.backgroundColor?.backgroundColorCode,
-                textColorCode: preset.textSetting?.backgroundColor?.textColorCode
+                textColorCode: preset.textSetting?.textColor?.textColorCode
             ),
             visualSimulation: VisualSimulationData(
                 blurriness: preset.visualSimulation?.blurriness ?? 0.0,

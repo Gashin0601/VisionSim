@@ -97,7 +97,7 @@ struct VisualSimulationView: View {
         
         let filter = CIFilter.gaussianBlur()
         filter.inputImage = ciImage
-        filter.radius = Float(visualSimulation.blurriness)
+        filter.radius = Float(visualSimulation.blurriness / 10)
         
         guard let outputImage = filter.outputImage else { return }
         

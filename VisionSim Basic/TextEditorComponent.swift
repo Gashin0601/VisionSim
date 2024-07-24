@@ -56,17 +56,14 @@ struct TextEditorComponent: UIViewRepresentable {
     }
     
     private func getFontWeight(from value: Double) -> UIFont.Weight {
-        switch value {
-        case 0.0..<0.1: return .ultraLight
-        case 0.1..<0.2: return .thin
-        case 0.2..<0.3: return .light
-        case 0.3..<0.4: return .regular
-        case 0.4..<0.5: return .medium
-        case 0.5..<0.6: return .semibold
-        case 0.6..<0.7: return .bold
-        case 0.7..<0.8: return .heavy
-        case 0.8...1.0: return .black
-        default: return .regular
+        let clampedValue = min(max(value, 0.0), 1.0) // 0.0 から 1.0 の範囲に制限
+        switch clampedValue {
+            case 0.0..<0.2: return .ultraLight
+            case 0.2..<0.4: return .light
+            case 0.4..<0.6: return .regular
+            case 0.6..<0.8: return .semibold
+            case 0.8...1.0: return .bold
+            default: return .regular
         }
     }
 }
