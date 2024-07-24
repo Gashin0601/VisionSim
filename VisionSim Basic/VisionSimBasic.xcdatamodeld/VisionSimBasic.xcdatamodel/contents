@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23B92" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="ColorEntity" representedClassName="ColorEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="backgroundColorCode" optional="YES" attributeType="String"/>
+        <attribute name="colorCode" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="textColorCode" optional="YES" attributeType="String"/>
+        <relationship name="backgroundSettings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TextSetting" inverseName="backgroundColor" inverseEntity="TextSetting"/>
+        <relationship name="textSettings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TextSetting" inverseName="textColor" inverseEntity="TextSetting"/>
+    </entity>
+    <entity name="EffectValue" representedClassName="EffectValue" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="effectName" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="preset" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Preset" inverseName="effectValues" inverseEntity="Preset"/>
+    </entity>
+    <entity name="ImageData" representedClassName="ImageData" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <attribute name="thumbnailData" optional="YES" attributeType="Binary"/>
+        <relationship name="visualSimulation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VisualSimulation" inverseName="selectedImage" inverseEntity="VisualSimulation"/>
+    </entity>
+    <entity name="Preset" representedClassName="Preset" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="orderIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="effectValues" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EffectValue" inverseName="preset" inverseEntity="EffectValue"/>
+        <relationship name="textSetting" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TextSetting" inverseName="preset" inverseEntity="TextSetting"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="presets" inverseEntity="User"/>
+        <relationship name="visualSimulation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VisualSimulation" inverseName="preset" inverseEntity="VisualSimulation"/>
+    </entity>
+    <entity name="TextSetting" representedClassName="TextSetting" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="textFieldData" optional="YES" attributeType="String"/>
+        <attribute name="textSize" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="textWeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="backgroundColor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ColorEntity" inverseName="backgroundSettings" inverseEntity="ColorEntity"/>
+        <relationship name="preset" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Preset" inverseName="textSetting" inverseEntity="Preset"/>
+        <relationship name="textColor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ColorEntity" inverseName="textSettings" inverseEntity="ColorEntity"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isFromCountryside" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="icon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserIcon" inverseName="user" inverseEntity="UserIcon"/>
+        <relationship name="presets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Preset" inverseName="user" inverseEntity="Preset"/>
+    </entity>
+    <entity name="UserIcon" representedClassName="UserIcon" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="icon" inverseEntity="User"/>
+    </entity>
+    <entity name="VisualSimulation" representedClassName="VisualSimulation" syncable="YES" codeGenerationType="class">
+        <attribute name="blurriness" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="preset" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Preset" inverseName="visualSimulation" inverseEntity="Preset"/>
+        <relationship name="selectedImage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ImageData" inverseName="visualSimulation" inverseEntity="ImageData"/>
+    </entity>
+</model>

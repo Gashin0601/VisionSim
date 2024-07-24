@@ -1,0 +1,691 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9B06272E2C32BA31006FF58C /* TextEditorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B06272D2C32BA31006FF58C /* TextEditorComponent.swift */; };
+		9B0627302C32D063006FF58C /* VisualSimulationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B06272F2C32D063006FF58C /* VisualSimulationComponent.swift */; };
+		9B0DCDB42C3A822A00C5DD82 /* NewCompornent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0627322C32D31F006FF58C /* NewCompornent.swift */; };
+		9B0DCDB62C3AD7D000C5DD82 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0DCDB52C3AD7D000C5DD82 /* TutorialView.swift */; };
+		9B9AB4012C30463800A0E5A0 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9AB4002C30463800A0E5A0 /* ProfileEditView.swift */; };
+		9B9AB4032C304EC100A0E5A0 /* SharedDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9AB4022C304EC100A0E5A0 /* SharedDataStructures.swift */; };
+		9BAD96132C2ABCFC007866F8 /* VisionSim_BasicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD96122C2ABCFC007866F8 /* VisionSim_BasicApp.swift */; };
+		9BAD96172C2ABCFE007866F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD96162C2ABCFE007866F8 /* Assets.xcassets */; };
+		9BAD961B2C2ABCFE007866F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BAD961A2C2ABCFE007866F8 /* Preview Assets.xcassets */; };
+		9BAD96252C2ABCFE007866F8 /* VisionSim_BasicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD96242C2ABCFE007866F8 /* VisionSim_BasicTests.swift */; };
+		9BAD962F2C2ABCFE007866F8 /* VisionSim_BasicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD962E2C2ABCFE007866F8 /* VisionSim_BasicUITests.swift */; };
+		9BAD96312C2ABCFE007866F8 /* VisionSim_BasicUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD96302C2ABCFE007866F8 /* VisionSim_BasicUITestsLaunchTests.swift */; };
+		9BAD963F2C2ABDC0007866F8 /* VisionSimBasic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD963D2C2ABDC0007866F8 /* VisionSimBasic.xcdatamodeld */; };
+		9BD1BCB52C2D61D700581B6B /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1BCB42C2D61D700581B6B /* PersistenceController.swift */; };
+		9BD1BCB72C2D620D00581B6B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1BCB62C2D620D00581B6B /* CoreDataManager.swift */; };
+		9BD1BCBB2C2D68C100581B6B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1BCBA2C2D68C100581B6B /* HomeView.swift */; };
+		9BD1BCBD2C2D716300581B6B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1BCBC2C2D716300581B6B /* SettingsView.swift */; };
+		9BD1BCC12C2D781800581B6B /* TextSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1BCC02C2D781800581B6B /* TextSettingView.swift */; };
+		9BD1BCC32C2D785300581B6B /* VisualSimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1BCC22C2D785300581B6B /* VisualSimulationView.swift */; };
+		9BD1BCC52C2D78A400581B6B /* PresetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1BCC42C2D78A400581B6B /* PresetDetailView.swift */; };
+		9BD1BCD02C2DB6DA00581B6B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1BCCF2C2DB6DA00581B6B /* ImagePicker.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9BAD96212C2ABCFE007866F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BAD96072C2ABCFC007866F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BAD960E2C2ABCFC007866F8;
+			remoteInfo = "VisionSim Basic";
+		};
+		9BAD962B2C2ABCFE007866F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BAD96072C2ABCFC007866F8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BAD960E2C2ABCFC007866F8;
+			remoteInfo = "VisionSim Basic";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9B06272D2C32BA31006FF58C /* TextEditorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorComponent.swift; sourceTree = "<group>"; };
+		9B06272F2C32D063006FF58C /* VisualSimulationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualSimulationComponent.swift; sourceTree = "<group>"; };
+		9B0627322C32D31F006FF58C /* NewCompornent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCompornent.swift; sourceTree = "<group>"; };
+		9B0DCDB52C3AD7D000C5DD82 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		9B9AB4002C30463800A0E5A0 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
+		9B9AB4022C304EC100A0E5A0 /* SharedDataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDataStructures.swift; sourceTree = "<group>"; };
+		9BAD960F2C2ABCFC007866F8 /* VisionSim Basic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VisionSim Basic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BAD96122C2ABCFC007866F8 /* VisionSim_BasicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionSim_BasicApp.swift; sourceTree = "<group>"; };
+		9BAD96162C2ABCFE007866F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9BAD96182C2ABCFE007866F8 /* VisionSim_Basic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VisionSim_Basic.entitlements; sourceTree = "<group>"; };
+		9BAD961A2C2ABCFE007866F8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9BAD96202C2ABCFE007866F8 /* VisionSim BasicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VisionSim BasicTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BAD96242C2ABCFE007866F8 /* VisionSim_BasicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionSim_BasicTests.swift; sourceTree = "<group>"; };
+		9BAD962A2C2ABCFE007866F8 /* VisionSim BasicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VisionSim BasicUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BAD962E2C2ABCFE007866F8 /* VisionSim_BasicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionSim_BasicUITests.swift; sourceTree = "<group>"; };
+		9BAD96302C2ABCFE007866F8 /* VisionSim_BasicUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionSim_BasicUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9BAD963E2C2ABDC0007866F8 /* VisionSimBasic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VisionSimBasic.xcdatamodel; sourceTree = "<group>"; };
+		9BD1BCB42C2D61D700581B6B /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		9BD1BCB62C2D620D00581B6B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		9BD1BCBA2C2D68C100581B6B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9BD1BCBC2C2D716300581B6B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9BD1BCC02C2D781800581B6B /* TextSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSettingView.swift; sourceTree = "<group>"; };
+		9BD1BCC22C2D785300581B6B /* VisualSimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualSimulationView.swift; sourceTree = "<group>"; };
+		9BD1BCC42C2D78A400581B6B /* PresetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetDetailView.swift; sourceTree = "<group>"; };
+		9BD1BCCF2C2DB6DA00581B6B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9BAD960C2C2ABCFC007866F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BAD961D2C2ABCFE007866F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BAD96272C2ABCFE007866F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9BAD96062C2ABCFC007866F8 = {
+			isa = PBXGroup;
+			children = (
+				9BAD96112C2ABCFC007866F8 /* VisionSim Basic */,
+				9BAD96232C2ABCFE007866F8 /* VisionSim BasicTests */,
+				9BAD962D2C2ABCFE007866F8 /* VisionSim BasicUITests */,
+				9BAD96102C2ABCFC007866F8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9BAD96102C2ABCFC007866F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BAD960F2C2ABCFC007866F8 /* VisionSim Basic.app */,
+				9BAD96202C2ABCFE007866F8 /* VisionSim BasicTests.xctest */,
+				9BAD962A2C2ABCFE007866F8 /* VisionSim BasicUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BAD96112C2ABCFC007866F8 /* VisionSim Basic */ = {
+			isa = PBXGroup;
+			children = (
+				9BAD96122C2ABCFC007866F8 /* VisionSim_BasicApp.swift */,
+				9BAD96162C2ABCFE007866F8 /* Assets.xcassets */,
+				9BAD96182C2ABCFE007866F8 /* VisionSim_Basic.entitlements */,
+				9BAD96192C2ABCFE007866F8 /* Preview Content */,
+				9BAD963D2C2ABDC0007866F8 /* VisionSimBasic.xcdatamodeld */,
+				9BD1BCB42C2D61D700581B6B /* PersistenceController.swift */,
+				9BD1BCB62C2D620D00581B6B /* CoreDataManager.swift */,
+				9BD1BCBA2C2D68C100581B6B /* HomeView.swift */,
+				9BD1BCBC2C2D716300581B6B /* SettingsView.swift */,
+				9BD1BCC02C2D781800581B6B /* TextSettingView.swift */,
+				9BD1BCC22C2D785300581B6B /* VisualSimulationView.swift */,
+				9BD1BCC42C2D78A400581B6B /* PresetDetailView.swift */,
+				9BD1BCCF2C2DB6DA00581B6B /* ImagePicker.swift */,
+				9B9AB4002C30463800A0E5A0 /* ProfileEditView.swift */,
+				9B9AB4022C304EC100A0E5A0 /* SharedDataStructures.swift */,
+				9B06272D2C32BA31006FF58C /* TextEditorComponent.swift */,
+				9B06272F2C32D063006FF58C /* VisualSimulationComponent.swift */,
+				9B0627322C32D31F006FF58C /* NewCompornent.swift */,
+				9B0DCDB52C3AD7D000C5DD82 /* TutorialView.swift */,
+			);
+			path = "VisionSim Basic";
+			sourceTree = "<group>";
+		};
+		9BAD96192C2ABCFE007866F8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9BAD961A2C2ABCFE007866F8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9BAD96232C2ABCFE007866F8 /* VisionSim BasicTests */ = {
+			isa = PBXGroup;
+			children = (
+				9BAD96242C2ABCFE007866F8 /* VisionSim_BasicTests.swift */,
+			);
+			path = "VisionSim BasicTests";
+			sourceTree = "<group>";
+		};
+		9BAD962D2C2ABCFE007866F8 /* VisionSim BasicUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9BAD962E2C2ABCFE007866F8 /* VisionSim_BasicUITests.swift */,
+				9BAD96302C2ABCFE007866F8 /* VisionSim_BasicUITestsLaunchTests.swift */,
+			);
+			path = "VisionSim BasicUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9BAD960E2C2ABCFC007866F8 /* VisionSim Basic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BAD96342C2ABCFE007866F8 /* Build configuration list for PBXNativeTarget "VisionSim Basic" */;
+			buildPhases = (
+				9BAD960B2C2ABCFC007866F8 /* Sources */,
+				9BAD960C2C2ABCFC007866F8 /* Frameworks */,
+				9BAD960D2C2ABCFC007866F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VisionSim Basic";
+			productName = "VisionSim Basic";
+			productReference = 9BAD960F2C2ABCFC007866F8 /* VisionSim Basic.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9BAD961F2C2ABCFE007866F8 /* VisionSim BasicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BAD96372C2ABCFE007866F8 /* Build configuration list for PBXNativeTarget "VisionSim BasicTests" */;
+			buildPhases = (
+				9BAD961C2C2ABCFE007866F8 /* Sources */,
+				9BAD961D2C2ABCFE007866F8 /* Frameworks */,
+				9BAD961E2C2ABCFE007866F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BAD96222C2ABCFE007866F8 /* PBXTargetDependency */,
+			);
+			name = "VisionSim BasicTests";
+			productName = "VisionSim BasicTests";
+			productReference = 9BAD96202C2ABCFE007866F8 /* VisionSim BasicTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9BAD96292C2ABCFE007866F8 /* VisionSim BasicUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BAD963A2C2ABCFE007866F8 /* Build configuration list for PBXNativeTarget "VisionSim BasicUITests" */;
+			buildPhases = (
+				9BAD96262C2ABCFE007866F8 /* Sources */,
+				9BAD96272C2ABCFE007866F8 /* Frameworks */,
+				9BAD96282C2ABCFE007866F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BAD962C2C2ABCFE007866F8 /* PBXTargetDependency */,
+			);
+			name = "VisionSim BasicUITests";
+			productName = "VisionSim BasicUITests";
+			productReference = 9BAD962A2C2ABCFE007866F8 /* VisionSim BasicUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9BAD96072C2ABCFC007866F8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					9BAD960E2C2ABCFC007866F8 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					9BAD961F2C2ABCFE007866F8 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 9BAD960E2C2ABCFC007866F8;
+					};
+					9BAD96292C2ABCFE007866F8 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 9BAD960E2C2ABCFC007866F8;
+					};
+				};
+			};
+			buildConfigurationList = 9BAD960A2C2ABCFC007866F8 /* Build configuration list for PBXProject "VisionSim Basic" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9BAD96062C2ABCFC007866F8;
+			productRefGroup = 9BAD96102C2ABCFC007866F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9BAD960E2C2ABCFC007866F8 /* VisionSim Basic */,
+				9BAD961F2C2ABCFE007866F8 /* VisionSim BasicTests */,
+				9BAD96292C2ABCFE007866F8 /* VisionSim BasicUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9BAD960D2C2ABCFC007866F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BAD961B2C2ABCFE007866F8 /* Preview Assets.xcassets in Resources */,
+				9BAD96172C2ABCFE007866F8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BAD961E2C2ABCFE007866F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BAD96282C2ABCFE007866F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9BAD960B2C2ABCFC007866F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BAD963F2C2ABDC0007866F8 /* VisionSimBasic.xcdatamodeld in Sources */,
+				9BD1BCBD2C2D716300581B6B /* SettingsView.swift in Sources */,
+				9B0DCDB42C3A822A00C5DD82 /* NewCompornent.swift in Sources */,
+				9BD1BCD02C2DB6DA00581B6B /* ImagePicker.swift in Sources */,
+				9BD1BCC52C2D78A400581B6B /* PresetDetailView.swift in Sources */,
+				9BD1BCBB2C2D68C100581B6B /* HomeView.swift in Sources */,
+				9BD1BCC32C2D785300581B6B /* VisualSimulationView.swift in Sources */,
+				9B0627302C32D063006FF58C /* VisualSimulationComponent.swift in Sources */,
+				9B0DCDB62C3AD7D000C5DD82 /* TutorialView.swift in Sources */,
+				9B9AB4012C30463800A0E5A0 /* ProfileEditView.swift in Sources */,
+				9BD1BCC12C2D781800581B6B /* TextSettingView.swift in Sources */,
+				9B06272E2C32BA31006FF58C /* TextEditorComponent.swift in Sources */,
+				9BAD96132C2ABCFC007866F8 /* VisionSim_BasicApp.swift in Sources */,
+				9BD1BCB72C2D620D00581B6B /* CoreDataManager.swift in Sources */,
+				9BD1BCB52C2D61D700581B6B /* PersistenceController.swift in Sources */,
+				9B9AB4032C304EC100A0E5A0 /* SharedDataStructures.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BAD961C2C2ABCFE007866F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BAD96252C2ABCFE007866F8 /* VisionSim_BasicTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BAD96262C2ABCFE007866F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BAD962F2C2ABCFE007866F8 /* VisionSim_BasicUITests.swift in Sources */,
+				9BAD96312C2ABCFE007866F8 /* VisionSim_BasicUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9BAD96222C2ABCFE007866F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BAD960E2C2ABCFC007866F8 /* VisionSim Basic */;
+			targetProxy = 9BAD96212C2ABCFE007866F8 /* PBXContainerItemProxy */;
+		};
+		9BAD962C2C2ABCFE007866F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BAD960E2C2ABCFC007866F8 /* VisionSim Basic */;
+			targetProxy = 9BAD962B2C2ABCFE007866F8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9BAD96322C2ABCFE007866F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9BAD96332C2ABCFE007866F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		9BAD96352C2ABCFE007866F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "VisionSim Basic/VisionSim_Basic.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"VisionSim Basic/Preview Content\"";
+				DEVELOPMENT_TEAM = BF827V744Q;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GashinCreations.VisionSim-Basic";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9BAD96362C2ABCFE007866F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "VisionSim Basic/VisionSim_Basic.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"VisionSim Basic/Preview Content\"";
+				DEVELOPMENT_TEAM = BF827V744Q;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GashinCreations.VisionSim-Basic";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9BAD96382C2ABCFE007866F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BF827V744Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GashinCreations.VisionSim-BasicTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VisionSim Basic.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VisionSim Basic";
+			};
+			name = Debug;
+		};
+		9BAD96392C2ABCFE007866F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BF827V744Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GashinCreations.VisionSim-BasicTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VisionSim Basic.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VisionSim Basic";
+			};
+			name = Release;
+		};
+		9BAD963B2C2ABCFE007866F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BF827V744Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GashinCreations.VisionSim-BasicUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "VisionSim Basic";
+			};
+			name = Debug;
+		};
+		9BAD963C2C2ABCFE007866F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BF827V744Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GashinCreations.VisionSim-BasicUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "VisionSim Basic";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9BAD960A2C2ABCFC007866F8 /* Build configuration list for PBXProject "VisionSim Basic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BAD96322C2ABCFE007866F8 /* Debug */,
+				9BAD96332C2ABCFE007866F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BAD96342C2ABCFE007866F8 /* Build configuration list for PBXNativeTarget "VisionSim Basic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BAD96352C2ABCFE007866F8 /* Debug */,
+				9BAD96362C2ABCFE007866F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BAD96372C2ABCFE007866F8 /* Build configuration list for PBXNativeTarget "VisionSim BasicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BAD96382C2ABCFE007866F8 /* Debug */,
+				9BAD96392C2ABCFE007866F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BAD963A2C2ABCFE007866F8 /* Build configuration list for PBXNativeTarget "VisionSim BasicUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BAD963B2C2ABCFE007866F8 /* Debug */,
+				9BAD963C2C2ABCFE007866F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9BAD963D2C2ABDC0007866F8 /* VisionSimBasic.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9BAD963E2C2ABDC0007866F8 /* VisionSimBasic.xcdatamodel */,
+			);
+			currentVersion = 9BAD963E2C2ABDC0007866F8 /* VisionSimBasic.xcdatamodel */;
+			path = VisionSimBasic.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9BAD96072C2ABCFC007866F8 /* Project object */;
+}
