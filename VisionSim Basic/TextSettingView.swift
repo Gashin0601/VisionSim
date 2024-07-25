@@ -26,7 +26,7 @@ struct TextSettingsView: View {
                         backgroundColor: UIColor(Color(hex: textSetting.backgroundColor?.backgroundColorCode ?? "#FFFFFF")),
                         isEditable: true
                     )
-                    .frame(height: isControlPanelVisible ? geometry.size.height * 0.6 : geometry.size.height)
+                    .frame(height: isControlPanelVisible ? geometry.size.height * 0.5 : geometry.size.height - 50)
                     .focused($isTextFieldFocused)
 
                     Spacer()
@@ -44,7 +44,7 @@ struct TextSettingsView: View {
                     } else {
                         // 表示ボタン（下中央に配置）
                         ShowControlPanelButton(isVisible: $isControlPanelVisible)
-                            .padding(.bottom, 90)
+                            .padding(.bottom, 60)
                             .transition(.opacity)
                     }
                 }
@@ -59,7 +59,7 @@ struct TextSettingsView: View {
                 }
             }
         }
-        .edgesIgnoringSafeArea(.bottom)
+        .ignoresSafeArea(.keyboard, edges: .bottom)
     }
 }
 
