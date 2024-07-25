@@ -345,12 +345,15 @@ struct HomeView: View {
     }
 
     private func deleteOtherPresets(at offsets: IndexSet) {
-        for index in offsets {
-            let preset = otherPresets[index]
-            viewContext.delete(preset)
+        DispatchQueue.main.async {
+            for index in offsets {
+                let preset = self.otherPresets[index]
+                self.viewContext.delete(preset)
+            }
+
+            self.otherPresets.remove(atOffsets: offsets)
+            self.saveContext()
         }
-        otherPresets.remove(atOffsets: offsets)
-        saveContext()
     }
 
     private func saveContext() {
