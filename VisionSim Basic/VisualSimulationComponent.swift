@@ -29,15 +29,15 @@ struct VisualSimulationComponent: View {
     }
     
     private func normalizedBlurAmount(_ value: CGFloat) -> CGFloat {
-        // 0-100のスケールを0-50のスケールに変換
-        return value / 50
+        // 0-1のスケールを0-50のスケールに変換
+        return value * 50
     }
 }
 
 // プレビュー用の拡張
 struct VisualSimulationComponent_Previews: PreviewProvider {
     static var previews: some View {
-        VisualSimulationComponent(image: UIImage(systemName: "photo")!, blurAmount: 50)
+        VisualSimulationComponent(image: UIImage(systemName: "photo")!, blurAmount: 0.5)
             .previewLayout(.fixed(width: 300, height: 300))
     }
 }
