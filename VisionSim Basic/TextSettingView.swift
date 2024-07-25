@@ -122,7 +122,7 @@ struct ControlPanel: View {
 
                 // テキスト設定スライダー
                 VStack {
-                    TextSettingSlider(value: $textSetting.textSize, range: 10...30, step: 1, title: "文字の大きさ")
+                    TextSettingSlider(value: $textSetting.textSize, range: 10...100, step: 1, title: "文字の大きさ")
                     TextSettingSlider(value: $textSetting.textWeight, range: 0...5, step: 0.1, title: "文字の太さ")
                 }
             }

@@ -29,8 +29,8 @@ struct VisualSimulationComponent: View {
     }
     
     private func normalizedBlurAmount(_ value: CGFloat) -> CGFloat {
-        // 0-100のスケールを0-10のスケールに変換
-        return value / 10.0
+        // 0-100のスケールを0-50のスケールに変換
+        return value / 50
     }
 }
 
