@@ -7,7 +7,7 @@ struct VisualSimulationComponent: View {
 
     var body: some View {
         GeometryReader { geometry in
-            Image(uiImage: applyBlur(to: image, amount: blurAmount))
+            Image(uiImage: applyBlur(to: image, amount: normalizedBlurAmount(blurAmount)))
                 .resizable()
                 .scaledToFill()
                 .frame(width: geometry.size.width, height: geometry.size.height)
@@ -26,5 +26,18 @@ struct VisualSimulationComponent: View {
             return image
         }
         return UIImage(cgImage: cgImage, scale: image.scale, orientation: image.imageOrientation)
+    }
+    
+    private func normalizedBlurAmount(_ value: CGFloat) -> CGFloat {
+        // 0-100のスケールを0-10のスケールに変換
+        return value / 10.0
+    }
+}
+
+// プレビュー用の拡張
+struct VisualSimulationComponent_Previews: PreviewProvider {
+    static var previews: some View {
+        VisualSimulationComponent(image: UIImage(systemName: "photo")!, blurAmount: 50)
+            .previewLayout(.fixed(width: 300, height: 300))
     }
 }

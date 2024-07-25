@@ -7,7 +7,6 @@ struct VisualSimulationView: View {
     @ObservedObject var visualSimulation: VisualSimulation
     @State private var isEditMode = false
     @State private var selectedImage: UIImage?
-    @State private var blurredImage: UIImage?
     @State private var isImagePickerPresented = false
 
     var body: some View {
@@ -17,11 +16,12 @@ struct VisualSimulationView: View {
                 VStack(alignment: .center) {
                     Text("☑︎ シミュレーション済みの画像")
                         .font(.headline)
-                    Image(uiImage: blurredImage ?? selectedImage ?? UIImage())
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 200)
-                        .frame(maxWidth: .infinity)
+                    VisualSimulationComponent(
+                        image: selectedImage ?? UIImage(),
+                        blurAmount: CGFloat(visualSimulation.blurriness)
+                    )
+                    .frame(height: 200)
+                    .frame(maxWidth: .infinity)
                 }
                 
                 VStack(alignment: .center) {
@@ -45,11 +45,12 @@ struct VisualSimulationView: View {
                 VStack(alignment: .center) {
                     Text("☑︎ シミュレーション済みの画像")
                         .font(.headline)
-                    Image(uiImage: blurredImage ?? selectedImage ?? UIImage())
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 200)
-                        .frame(maxWidth: .infinity)
+                    VisualSimulationComponent(
+                        image: selectedImage ?? UIImage(),
+                        blurAmount: CGFloat(visualSimulation.blurriness)
+                    )
+                    .frame(height: 200)
+                    .frame(maxWidth: .infinity)
                 }
                 
                 Button("写真を選択") {
@@ -64,7 +65,6 @@ struct VisualSimulationView: View {
                     get: { self.visualSimulation.blurriness },
                     set: { newValue in
                         self.visualSimulation.blurriness = newValue
-                        self.applyBlurEffect()
                         self.saveContext()
                     }
                 ), in: 0...100, step: 0.5)
@@ -85,7 +85,7 @@ struct VisualSimulationView: View {
             ImagePicker(sourceType: .photoLibrary, selectedImage: $selectedImage)
         }
         .onChange(of: selectedImage) { _ in
-            applyBlurEffect()
+            saveChanges()
         }
         .onAppear(perform: loadImage)
         .navigationBarTitle("Visual Simulation", displayMode: .inline)
@@ -95,23 +95,6 @@ struct VisualSimulationView: View {
         if let imageData = visualSimulation.selectedImage?.imageData,
            let image = UIImage(data: imageData) {
             selectedImage = image
-            applyBlurEffect()
-        }
-    }
-
-    private func applyBlurEffect() {
-        guard let inputImage = selectedImage else { return }
-        guard let ciImage = CIImage(image: inputImage) else { return }
-        
-        let filter = CIFilter.gaussianBlur()
-        filter.inputImage = ciImage
-        filter.radius = Float(visualSimulation.blurriness / 10)
-        
-        guard let outputImage = filter.outputImage else { return }
-        
-        let context = CIContext()
-        if let cgImage = context.createCGImage(outputImage, from: ciImage.extent) {
-            blurredImage = UIImage(cgImage: cgImage, scale: inputImage.scale, orientation: inputImage.imageOrientation)
         }
     }
 
