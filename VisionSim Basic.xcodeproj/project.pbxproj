@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		9B06272E2C32BA31006FF58C /* TextEditorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B06272D2C32BA31006FF58C /* TextEditorComponent.swift */; };
 		9B0627302C32D063006FF58C /* VisualSimulationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B06272F2C32D063006FF58C /* VisualSimulationComponent.swift */; };
+		9B0676412C53F91A0075555F /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0676402C53F91A0075555F /* TutorialView.swift */; };
 		9B0DCDB42C3A822A00C5DD82 /* NewCompornent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0627322C32D31F006FF58C /* NewCompornent.swift */; };
-		9B0DCDB62C3AD7D000C5DD82 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0DCDB52C3AD7D000C5DD82 /* TutorialView.swift */; };
 		9B9AB4012C30463800A0E5A0 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9AB4002C30463800A0E5A0 /* ProfileEditView.swift */; };
 		9B9AB4032C304EC100A0E5A0 /* SharedDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9AB4022C304EC100A0E5A0 /* SharedDataStructures.swift */; };
 		9BAD96132C2ABCFC007866F8 /* VisionSim_BasicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD96122C2ABCFC007866F8 /* VisionSim_BasicApp.swift */; };
@@ -51,7 +51,7 @@
 		9B06272D2C32BA31006FF58C /* TextEditorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorComponent.swift; sourceTree = "<group>"; };
 		9B06272F2C32D063006FF58C /* VisualSimulationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualSimulationComponent.swift; sourceTree = "<group>"; };
 		9B0627322C32D31F006FF58C /* NewCompornent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCompornent.swift; sourceTree = "<group>"; };
-		9B0DCDB52C3AD7D000C5DD82 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		9B0676402C53F91A0075555F /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		9B9AB4002C30463800A0E5A0 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		9B9AB4022C304EC100A0E5A0 /* SharedDataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDataStructures.swift; sourceTree = "<group>"; };
 		9BAD960F2C2ABCFC007866F8 /* VisionSim Basic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VisionSim Basic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +100,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B489CAF2C53F22B00DA7CB2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9B489CB62C53F53900DA7CB2 /* Main */,
+				9B489CB52C53F53400DA7CB2 /* TextSettings */,
+				9B489CB42C53F52D00DA7CB2 /* VisualSimulation */,
+				9B489CB32C53F51800DA7CB2 /* Tutorial */,
+				9B489CB02C53F28900DA7CB2 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9B489CB02C53F28900DA7CB2 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9B0627322C32D31F006FF58C /* NewCompornent.swift */,
+				9B06272D2C32BA31006FF58C /* TextEditorComponent.swift */,
+				9B06272F2C32D063006FF58C /* VisualSimulationComponent.swift */,
+				9BD1BCCF2C2DB6DA00581B6B /* ImagePicker.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9B489CB32C53F51800DA7CB2 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				9B0676402C53F91A0075555F /* TutorialView.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		9B489CB42C53F52D00DA7CB2 /* VisualSimulation */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1BCC22C2D785300581B6B /* VisualSimulationView.swift */,
+			);
+			path = VisualSimulation;
+			sourceTree = "<group>";
+		};
+		9B489CB52C53F53400DA7CB2 /* TextSettings */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1BCC02C2D781800581B6B /* TextSettingView.swift */,
+			);
+			path = TextSettings;
+			sourceTree = "<group>";
+		};
+		9B489CB62C53F53900DA7CB2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1BCBA2C2D68C100581B6B /* HomeView.swift */,
+				9BD1BCC42C2D78A400581B6B /* PresetDetailView.swift */,
+				9BD1BCBC2C2D716300581B6B /* SettingsView.swift */,
+				9B9AB4002C30463800A0E5A0 /* ProfileEditView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		9BAD96062C2ABCFC007866F8 = {
 			isa = PBXGroup;
 			children = (
@@ -124,24 +182,14 @@
 			isa = PBXGroup;
 			children = (
 				9BAD96122C2ABCFC007866F8 /* VisionSim_BasicApp.swift */,
+				9B489CAF2C53F22B00DA7CB2 /* Views */,
 				9BAD96162C2ABCFE007866F8 /* Assets.xcassets */,
 				9BAD96182C2ABCFE007866F8 /* VisionSim_Basic.entitlements */,
 				9BAD96192C2ABCFE007866F8 /* Preview Content */,
 				9BAD963D2C2ABDC0007866F8 /* VisionSimBasic.xcdatamodeld */,
 				9BD1BCB42C2D61D700581B6B /* PersistenceController.swift */,
 				9BD1BCB62C2D620D00581B6B /* CoreDataManager.swift */,
-				9BD1BCBA2C2D68C100581B6B /* HomeView.swift */,
-				9BD1BCBC2C2D716300581B6B /* SettingsView.swift */,
-				9BD1BCC02C2D781800581B6B /* TextSettingView.swift */,
-				9BD1BCC22C2D785300581B6B /* VisualSimulationView.swift */,
-				9BD1BCC42C2D78A400581B6B /* PresetDetailView.swift */,
-				9BD1BCCF2C2DB6DA00581B6B /* ImagePicker.swift */,
-				9B9AB4002C30463800A0E5A0 /* ProfileEditView.swift */,
 				9B9AB4022C304EC100A0E5A0 /* SharedDataStructures.swift */,
-				9B06272D2C32BA31006FF58C /* TextEditorComponent.swift */,
-				9B06272F2C32D063006FF58C /* VisualSimulationComponent.swift */,
-				9B0627322C32D31F006FF58C /* NewCompornent.swift */,
-				9B0DCDB52C3AD7D000C5DD82 /* TutorialView.swift */,
 			);
 			path = "VisionSim Basic";
 			sourceTree = "<group>";
@@ -309,11 +357,11 @@
 				9BD1BCBB2C2D68C100581B6B /* HomeView.swift in Sources */,
 				9BD1BCC32C2D785300581B6B /* VisualSimulationView.swift in Sources */,
 				9B0627302C32D063006FF58C /* VisualSimulationComponent.swift in Sources */,
-				9B0DCDB62C3AD7D000C5DD82 /* TutorialView.swift in Sources */,
 				9B9AB4012C30463800A0E5A0 /* ProfileEditView.swift in Sources */,
 				9BD1BCC12C2D781800581B6B /* TextSettingView.swift in Sources */,
 				9B06272E2C32BA31006FF58C /* TextEditorComponent.swift in Sources */,
 				9BAD96132C2ABCFC007866F8 /* VisionSim_BasicApp.swift in Sources */,
+				9B0676412C53F91A0075555F /* TutorialView.swift in Sources */,
 				9BD1BCB72C2D620D00581B6B /* CoreDataManager.swift in Sources */,
 				9BD1BCB52C2D61D700581B6B /* PersistenceController.swift in Sources */,
 				9B9AB4032C304EC100A0E5A0 /* SharedDataStructures.swift in Sources */,

@@ -339,12 +339,15 @@ struct HomeView: View {
     }
 
     private func loadOtherPresets() {
-        otherPresets = users.filter { !$0.isFromCountryside }
-            .flatMap { $0.presets?.allObjects as? [Preset] ?? [] }
-            .sorted { ($0.name ?? "") < ($1.name ?? "") }
+        viewContext.perform {
+            self.otherPresets = self.users.filter { !$0.isFromCountryside }
+                .flatMap { $0.presets?.allObjects as? [Preset] ?? [] }
+                .sorted { ($0.name ?? "") < ($1.name ?? "") }
+        }
     }
 
     private func deleteOtherPresets(at offsets: IndexSet) {
+<<<<<<< HEAD:VisionSim Basic/HomeView.swift
         DispatchQueue.main.async {
             for index in offsets {
                 let preset = self.otherPresets[index]
@@ -353,6 +356,31 @@ struct HomeView: View {
 
             self.otherPresets.remove(atOffsets: offsets)
             self.saveContext()
+=======
+        viewContext.performAndWait {
+            for index in offsets {
+                if index < otherPresets.count {
+                    let preset = otherPresets[index]
+                    viewContext.delete(preset)
+                }
+            }
+            
+            do {
+                try viewContext.save()
+                
+                // 削除後にotherPresets配列を更新
+                DispatchQueue.main.async {
+                    self.otherPresets.remove(atOffsets: offsets)
+                    self.loadOtherPresets() // otherPresetsを再読み込み
+                }
+            } catch {
+                // エラーハンドリング
+                DispatchQueue.main.async {
+                    self.debugMessage = "Failed to delete preset: \(error.localizedDescription)"
+                    self.showingDebugAlert = true
+                }
+            }
+>>>>>>> 1edf168 (フォルダ整理):VisionSim Basic/Views/Main/HomeView.swift
         }
     }
 

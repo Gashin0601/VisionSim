@@ -17,7 +17,7 @@ struct VisualSimulationView: View {
                     Text("☑︎ シミュレーション済みの画像")
                         .font(.headline)
                     VisualSimulationComponent(
-                        image: selectedImage ?? UIImage(),
+                        image: selectedImage ?? UIImage(systemName: "photo")!,
                         blurAmount: CGFloat(visualSimulation.blurriness)
                     )
                     .frame(height: 200)
@@ -27,7 +27,7 @@ struct VisualSimulationView: View {
                 VStack(alignment: .center) {
                     Text("☐ 通常の画像")
                         .font(.headline)
-                    Image(uiImage: selectedImage ?? UIImage())
+                    Image(uiImage: selectedImage ?? UIImage(systemName: "photo")!)
                         .resizable()
                         .scaledToFit()
                         .frame(height: 200)
@@ -46,7 +46,7 @@ struct VisualSimulationView: View {
                     Text("☑︎ シミュレーション済みの画像")
                         .font(.headline)
                     VisualSimulationComponent(
-                        image: selectedImage ?? UIImage(),
+                        image: selectedImage ?? UIImage(systemName: "photo")!,
                         blurAmount: CGFloat(visualSimulation.blurriness)
                     )
                     .frame(height: 200)

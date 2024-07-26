@@ -26,7 +26,7 @@ struct SettingsView: View {
             }
             .navigationBarTitle("設定", displayMode: .inline)
             .sheet(isPresented: $showTermsOfService) {
-                SafariView(url: URL(string: "https://gashincreations.com/82530dfbf62b4754b00e7a41e675f289")!)
+                SafariView(url: URL(string: "https://visionsim.prot-news.com/terms-of-service.html")!)
             }
             .sheet(isPresented: $showTutorial) {
                 TutorialView(showTutorial: $showTutorial)
